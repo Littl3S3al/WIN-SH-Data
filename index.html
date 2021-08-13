@@ -5,54 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIN Sexual Harassment Data</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+
+    
+    
+
 </head>
-<body>
+<body id="full-bg">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+    <my-navbar></my-navbar>
 
-              
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+
+    <div id="data-dashboard" class="container">
+      <div id="opening" class="row bg-blue-20 my-rounded">
+        <div class="col-sm-12 col-lg-6 offset-lg-6 d-flex align-items-center text-white">
+          <div>
+            <h1>heading</h1>
+          <p>stuff...</p>
           </div>
         </div>
-      </nav>
+      </div>
 
+      <div id="overview" class="row">
+        <div id="data-overview" class="bg-blue-20 col-sm-12 col-lg-8 my-rounded d-flex flex-column">
+          <div id="data-container" class="flex-grow-1 bg-yellow-80"></div>
+          <div id="data-toggles" class="row">
+            <div class="col-sm-12 col-lg-3">
+              <h5>Prevalence of Sexual Harassment in Africa</h5>
+              <p>Click on the toggles to filter results by gender, type of harassment and action taken.</p>
+            </div>
+            <!-- *gender column -->
+            <div class="col-sm-6 col-lg-3">
+              <h6 class="text-center">GENDER</h6>
+              <hr>
+              <div class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="gender" value="f">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Female</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="gender" value="m">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Male</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="gender" value="n">
+                <label class="form-check-label" for="flexSwitchCheckDefault">GNC</label>
+              </div>
+            </div>
+            <!-- *type column -->
+            <div class="col-sm-6 col-lg-3">
+              <h6 class="text-center">TYPE</h6>
+              <hr>
+              <div class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="type" value="v">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Verbal</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="type" value="p">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Physical</label>
+              </div>
+            </div>
+            <!-- *action column -->
+            <div class="col-sm-6 col-lg-3">
+              <h6 class="text-center">ACTION</h6>
+              <hr>
+              <div class="form-check form-switch">
+                <input class="form-check-input yellow-switch" type="checkbox"  id="flexSwitchCheckDefault" name="reported" value="reported">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Reported</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input red-switch" type="checkbox"  id="flexSwitchCheckDefault" name="action" value="action">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Received Action</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="data-links" class="d-flex flex-column col-sm-12 col-lg-4">
+          <div class="flex-grow-1 data-link bg-blue-20 my-rounded">
+            <a href="">test link</a>
+          </div>
+          <div class="flex-grow-1 data-link bg-blue-20 my-rounded">
+            <a href="">test link</a>
+          </div>
+          <div class="flex-grow-1 data-link bg-blue-20 my-rounded">
+            <a href="">test link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <my-footer></my-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

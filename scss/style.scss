@@ -1,27 +1,86 @@
-@media (max-width: 992px) {
-    .navbar-collapse {
-        position: fixed;
-        top: 0; /* adjust to height of navbar */
-        right: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
-        width: 100%;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+@import "var.scss", "mixins.scss", "navbar.scss", "footer.scss";
+
+body{
+    font-family: 'Alegreya Sans', sans-serif!important;
+    font-size: 1em;
+    padding-top: 100px;
+}
+body#full-bg{
+    background: url('../assets/backgroundTexture.jpg') repeat;
+    background-size: auto;
+    background-position: fixed;
+}
+p{
+    font-weight: 200;
+}
+
+.my-rounded{
+    border-radius: 30px;
+}
+
+// switch styles
+.form-check-input:checked{
+    background-color: $teal!important;
+    border-color: $teal!important;
+    
+}
+.form-check-input.yellow-switch:checked{
+    background-color: $yellow!important;
+    border-color: $yellow!important;
+}
+.form-check-input.red-switch:checked{
+    background-color: $red!important;
+    border-color: $red!important;
+}
+
+.form-switch .form-check-input.yellow-switch{
+    background-image: url('../assets/yellow.svg')
+}
+.form-switch .form-check-input.red-switch{
+    background-image: url('../assets/red.svg')
+}
+
+$grid-padding: 10px;
+
+#opening{
+    min-height: 80vh;
+    height: auto;
+    background: url('../assets//images/media-manager.jpg') center center no-repeat;
+    background-size: cover;
+    @include mQ ($md, landscape) {
+        min-height: 40vh;
+    }
+}
+#overview{
+    margin-top: $grid-padding;
+}
+#data-overview{
+    min-height: 90vh;
+    @include mQ ($lg){
+        margin: $grid-padding 0;
+    }
+    div{
         height: 100%;
-        background: rgba(skyblue, 0.5)
     }
-
-    .navbar-collapse.collapsing {
-        right: -100%;
-        transition: height 0s ease;
-    }
-
-    .navbar-collapse.show {
-        right: 0;
-        transition: right 300ms ease-in-out;
-    }
-
-    .navbar-toggler.collapsed ~ .navbar-collapse {
-        transition: right 500ms ease-in-out;
+}
+#data-toggles{
+    padding-top: 10px;
+    color: white;
+    border-top: 1px solid $teal
+}
+#data-links{
+    padding: 0;
+    div{
+        margin-top: $grid-padding;
+        &:last-child{
+            margin-bottom: $grid-padding;
+        }
+        @include mQ ($lg){
+            margin-left: $grid-padding;
+        }
     }
 }

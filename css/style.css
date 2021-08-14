@@ -2327,7 +2327,23 @@ h1.bigger {
 }
 
 #data-links {
-  padding: 0;
+  padding: 0 !important;
+}
+#data-links a {
+  color: white;
+  text-decoration: none;
+}
+#data-links i.material-icons {
+  color: #ff4700;
+  font-size: 2em;
+}
+@media only screen and (min-width: 768px) {
+  #data-links i.material-icons {
+    font-size: 3em;
+  }
+}
+#data-links .my-links {
+  padding: 0 20px;
 }
 #data-links div {
   margin-top: 10px;
@@ -2339,6 +2355,10 @@ h1.bigger {
   #data-links div {
     margin-left: 10px;
   }
+}
+#data-links .data-link:hover {
+  background: rgba(46, 181, 195, 0.7);
+  transition: background 0.5s;
 }
 
 #data-container {

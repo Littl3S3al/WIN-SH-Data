@@ -100,7 +100,21 @@ $grid-padding: 10px;
     }
 }
 #data-links{
-    padding: 0;
+    padding: 0!important;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    i.material-icons{
+        color: $red;
+        font-size: 2em;
+        @include mQ ($md) {
+            font-size: 3em;
+        }
+    }
+    .my-links{
+        padding: 0 20px;
+    }
     div{
         margin-top: $grid-padding;
         &:last-child{
@@ -108,6 +122,12 @@ $grid-padding: 10px;
         }
         @include mQ ($lg){
             margin-left: $grid-padding;
+        }
+    }
+    .data-link{
+        &:hover{
+            background: rgba($teal, 0.7);
+            transition: background 0.5s;
         }
     }
 }

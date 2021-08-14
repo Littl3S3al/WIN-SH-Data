@@ -1,6 +1,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @import "var.scss", "mixins.scss", "navbar.scss", "footer.scss";
 
@@ -15,7 +16,17 @@ body#full-bg{
     background-position: fixed;
 }
 p{
-    font-weight: 200;
+    font-weight: 300;
+}
+p.bigger{
+    font-weight: 300;
+    font-size: 1.5em;
+}
+h1.bigger{
+    font-size: 3em;
+    @include mQ ($md) {
+        font-size: 4em;
+    }
 }
 
 .my-rounded{
@@ -47,30 +58,46 @@ p{
 $grid-padding: 10px;
 
 #opening{
+    padding: 25px;
     min-height: 80vh;
     height: auto;
-    background: url('../assets//images/media-manager.jpg') center center no-repeat;
+    background: url('../assets//images/media-manager.jpg') -150px center no-repeat;
     background-size: cover;
+    box-shadow: 0 0 15px rgba(darken($darkBlue, 50), 0.5);
     @include mQ ($md, landscape) {
         min-height: 40vh;
+    }
+    @include mQ ($lg){
+        background: url('../assets//images/media-manager.jpg') center center no-repeat;
+    }
+    .red-block{
+        width: 200px;
+        height: 25px;
+        background: $red;
     }
 }
 #overview{
     margin-top: $grid-padding;
 }
+
 #data-overview{
     min-height: 90vh;
     @include mQ ($lg){
         margin: $grid-padding 0;
     }
-    div{
-        height: 100%;
-    }
 }
+
+
 #data-toggles{
-    padding-top: 10px;
+    padding: 10px 0;
     color: white;
-    border-top: 1px solid $teal
+    border-top: 1px solid $teal;
+    .toggles{
+        padding-top: 10px;
+        @include mQ ($md){
+            padding-top: 0;
+        }
+    }
 }
 #data-links{
     padding: 0;
@@ -82,5 +109,46 @@ $grid-padding: 10px;
         @include mQ ($lg){
             margin-left: $grid-padding;
         }
+    }
+}
+#data-container{
+    position: relative;
+    overflow: hidden;
+    text#africa.names{
+        display: none;
+    }
+    #value-africa{
+        display: none;
+    }
+    #total-value{
+        width: Calc(100% - 50px);
+        padding: 10px 25px;
+
+        @include mQ ($md) {
+            width: auto;
+            padding: 25px;
+        }
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        color: white;
+        background: rgba($darkBlue, 50);
+        border: 2px solid $teal;
+        position: absolute;
+        margin: 25px; 
+        text-align: center;
+        h1{
+            text-transform: uppercase;
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            font-size: 2em;
+        }
+        h2{
+            font-family: 'Bebas Neue', cursive;
+        }
+    }
+    .canvas{
+        margin-top: 100px;
+        min-height: 60vh;
     }
 }

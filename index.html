@@ -24,24 +24,42 @@
       <div id="opening" class="row bg-blue-20 my-rounded">
         <div class="col-sm-12 col-lg-6 offset-lg-6 d-flex align-items-center text-white">
           <div>
-            <h1>heading</h1>
-          <p>stuff...</p>
+            <h1 class="bigger">Sexual Harassment Data</h1>
+            <div class="red-block"></div>
+            <p class="bigger">
+              Get a snapshot of the scale of sexual harassment in media organisations and drill down to see what action is being taken to address the problem. Drawn from research by Women in News in 2020 and 2021.
+            </p>
           </div>
         </div>
       </div>
 
       <div id="overview" class="row">
         <div id="data-overview" class="bg-blue-20 col-sm-12 col-lg-8 my-rounded d-flex flex-column">
-          <div id="data-container" class="flex-grow-1 bg-yellow-80"></div>
+
+          <!-- *data container -->
+          <div id="data-container" class="h-100 flex-grow-1">
+            <div class="canvas h-100 w-100">
+            </div>
+            <div id="total-value" class="my-rounded">
+              <h1>Africa</h1>
+              <h2><span id="Africa-Value"></span>%</h2>
+            </div>
+          </div>
+
+          <!-- *data toggles -->
           <div id="data-toggles" class="row">
-            <div class="col-sm-12 col-lg-3">
+            <div class="col-sm-12 text-center mb-4">
               <h5>Prevalence of Sexual Harassment in Africa</h5>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-5">
               <p>Click on the toggles to filter results by gender, type of harassment and action taken.</p>
+              <p>
+                Zoom in and out to get a better picture.
+              </p>
             </div>
             <!-- *gender column -->
-            <div class="col-sm-6 col-lg-3">
-              <h6 class="text-center">GENDER</h6>
-              <hr>
+            <div class="toggles col-sm-6 col-md-3 col-lg-2">
+              <h6>GENDER</h6>
               <div class="form-check form-switch">
                 <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="gender" value="f">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Female</label>
@@ -56,9 +74,8 @@
               </div>
             </div>
             <!-- *type column -->
-            <div class="col-sm-6 col-lg-3">
-              <h6 class="text-center">TYPE</h6>
-              <hr>
+            <div class="toggles col-sm-6 col-md-3 col-lg-2">
+              <h6>TYPE</h6>
               <div class="form-check form-switch">
                 <input class="form-check-input" checked type="checkbox"  id="flexSwitchCheckDefault" name="type" value="v">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Verbal</label>
@@ -69,9 +86,8 @@
               </div>
             </div>
             <!-- *action column -->
-            <div class="col-sm-6 col-lg-3">
-              <h6 class="text-center">ACTION</h6>
-              <hr>
+            <div class="toggles col-sm-12 col-md-6 col-lg-3">
+              <h6>ACTION</h6>
               <div class="form-check form-switch">
                 <input class="form-check-input yellow-switch" type="checkbox"  id="flexSwitchCheckDefault" name="reported" value="reported">
                 <label class="form-check-label" for="flexSwitchCheckDefault">Reported</label>
@@ -102,6 +118,15 @@
 
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
+
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script src="js/bubble/var.js"></script>
+    <script src="js/bubble/index.js"></script>
+    <script src="js/bubble//data.js"></script>
+    <script src="js/bubble/setup.js"></script>
+    <script src="js/bubble/bubble.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>

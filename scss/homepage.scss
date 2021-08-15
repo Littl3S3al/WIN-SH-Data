@@ -1,0 +1,115 @@
+#opening{
+    padding: 25px;
+    min-height: 80vh;
+    height: auto;
+    background: url('../assets//images/media-manager.jpg') -150px center no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 15px rgba(darken($darkBlue, 50), 0.5);
+    @include mQ ($md, landscape) {
+        min-height: 40vh;
+    }
+    @include mQ ($lg){
+        background: url('../assets//images/media-manager.jpg') center center no-repeat;
+    }
+    .red-block{
+        width: 200px;
+        height: 25px;
+        background: $red;
+    }
+}
+#overview{
+    margin-top: $grid-padding;
+}
+
+#data-overview{
+    min-height: 90vh;
+    @include mQ ($lg){
+        margin: $grid-padding 0;
+    }
+}
+
+
+#data-toggles{
+    padding: 10px 0;
+    color: white;
+    border-top: 1px solid $teal;
+    .toggles{
+        padding-top: 10px;
+        @include mQ ($md){
+            padding-top: 0;
+        }
+    }
+}
+#data-links{
+    padding: 0!important;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+    i.material-icons{
+        color: $red;
+        font-size: 2em;
+        @include mQ ($md) {
+            font-size: 3em;
+        }
+    }
+    .my-links{
+        margin: 0 20px;
+    }
+    div{
+        margin-top: $grid-padding;
+        &:last-child{
+            margin-bottom: $grid-padding;
+        }
+        @include mQ ($lg){
+            margin-left: $grid-padding;
+        }
+    }
+    .data-link{
+        &:hover{
+            background: rgba($teal, 0.7);
+            transition: background 0.5s;
+        }
+    }
+}
+#data-container{
+    position: relative;
+    overflow: hidden;
+    text#africa.names{
+        display: none;
+    }
+    #value-africa{
+        display: none;
+    }
+    #total-value{
+        width: Calc(100% - 50px);
+        padding: 10px 25px;
+
+        @include mQ ($md) {
+            width: auto;
+            padding: 25px;
+        }
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        color: white;
+        background: rgba($darkBlue, 50);
+        border: 2px solid $teal;
+        position: absolute;
+        margin: 25px; 
+        text-align: center;
+        h1{
+            text-transform: uppercase;
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            font-size: 2em;
+        }
+        h2{
+            font-family: 'Bebas Neue', cursive;
+        }
+    }
+    .canvas{
+        margin-top: 100px;
+        min-height: 60vh;
+    }
+}

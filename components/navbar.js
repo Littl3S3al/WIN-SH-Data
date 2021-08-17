@@ -4,7 +4,7 @@ class NavBar extends HTMLElement {
         this.innerHTML = `
         <nav class="navbar fixed-top navbar-dark bg-darkBlue-80" id="my-nav">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" href="index.html">
             <img src="assets/logo-white.svg" alt="Women In News"/>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,16 +33,16 @@ class NavBar extends HTMLElement {
               <ul class="navbar-nav me-auto text-start p-4">
                 <li class="red-block"><div class="block"></div></li>
                 <li class="nav-item nav-title">
-                  <a class="nav-link" aria-current="page" href="/">Sexual Harassment Data</a>
+                  <a class="nav-link" aria-current="page" href="index.html">Sexual Harassment Data</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/full-data.html" class="nav-link">Full Data Section</a>
+                  <a href="full-data.html" class="nav-link">Full Data Section</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/articles.html" class="nav-link">Articles</a>
+                  <a href="articles.html" class="nav-link">Articles</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/reports.html" class="nav-link">PDF Reports</a>
+                  <a href="reports.html" class="nav-link">PDF Reports</a>
                 </li>
                 <li class="red-block"><div class="block"></div></li>
                 <li class="nav-item nav-title">

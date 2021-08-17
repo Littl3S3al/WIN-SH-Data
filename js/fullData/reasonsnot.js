@@ -90,10 +90,16 @@ const filterData = (data, gender, type) => {
 
 const canvas = document.querySelector('.canvas_v');
 
+let divider;
+if(!md && !lg){
+  divider = 3;
+} else if (md || lg){
+  divider = 5;
+}
 const dims = {
   height: canvas.offsetHeight,
   width: canvas.offsetWidth,
-  radius: canvas.offsetWidth / 3,
+  radius: canvas.offsetWidth / divider,
   fontFamily: 'Alegreya Sans'
 };
 const cent = { x: dims.width / 2, y: dims.radius + 20 };
@@ -140,7 +146,13 @@ const legendGroup = svg
     (d) => `translate(${50}, ${dims.radius * 2 + 60})`
   );
 
-const legend = d3.legendColor().shape('circle').shapePadding(5).scale(color);
+  let padding;
+  if (!lg){
+    padding = 5
+  } else {
+    padding = 10;
+  }
+const legend = d3.legendColor().shape('circle').shapePadding(padding).scale(color);
 
 const tip = d3
   .tip()
@@ -166,7 +178,7 @@ const update = (data, sumTotal) => {
     .selectAll('text')
     .data(pie(data))
     .attr('fill', 'white')
-    .attr('font-size', labelFS)
+    .attr('font-size', keyFS*0.7 + 'em')
     .each(function (d) {
       assignClass(d.data.key, this);
     });

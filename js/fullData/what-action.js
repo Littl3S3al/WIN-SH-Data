@@ -88,10 +88,18 @@ const filterData = (data, gender, type) => {
 
 const canvas = document.querySelector('.canvas_iv');
 
+let divider;
+if (!md && !lg){
+  divider = 0.3;
+} else if(md || lg){
+  divider = 0.25;
+} 
+
+
 const dims = {
   height: canvas.offsetHeight,
   width: canvas.offsetWidth,
-  marginLeft: canvas.offsetWidth*0.3,
+  marginLeft: canvas.offsetWidth * divider,
   marginRight: 30,
   marginTop: 50,
   fontFamily1: 'Bebas Neue',

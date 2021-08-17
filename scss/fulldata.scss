@@ -11,6 +11,16 @@
 .g-col{
   padding: 0!important;
 }
+.g-row .g-col:nth-child(1n + 2) {
+  @include mQ($lg){
+    padding-right: 10px!important;
+  }
+}
+.g-row .g-col:nth-child(2n + 2) {
+  @include mQ($lg){
+    padding-left: 10px!important;
+  }
+}
 
 .sampleSize{
   margin: 0 auto 20px auto;
@@ -36,6 +46,9 @@
 }
 .canvas_v{
   height: 90vh;
+  @include mQ ($md){
+    height: 70vh;
+  }
 }
 
 .d3-tip{

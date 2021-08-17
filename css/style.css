@@ -2401,6 +2401,18 @@ button.dropdown-toggle i {
   padding: 0 !important;
 }
 
+@media only screen and (min-width: 992px) {
+  .g-row .g-col:nth-child(1n+2) {
+    padding-right: 10px !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .g-row .g-col:nth-child(2n+2) {
+    padding-left: 10px !important;
+  }
+}
+
 .sampleSize {
   margin: 0 auto 20px auto;
   border: 1px solid white;
@@ -2431,6 +2443,11 @@ button.dropdown-toggle i {
 
 .canvas_v {
   height: 90vh;
+}
+@media only screen and (min-width: 768px) {
+  .canvas_v {
+    height: 70vh;
+  }
 }
 
 .d3-tip {

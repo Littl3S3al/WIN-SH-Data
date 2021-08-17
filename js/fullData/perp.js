@@ -80,12 +80,19 @@ const filterData = (data, gender, type) => {
 
 // !-------------------------------graph
 
-const canvas = document.querySelector('.canvas_iv');
+const canvas = document.querySelector('.canvas_vi');
+
+let flexiMarg;
+if (!md || lg){
+  flexiMarg = canvas.offsetWidth*0.3;
+} else if(md){
+  flexiMarg = canvas.offsetWidth*0.2;
+}  
 
 const dims = {
   height: canvas.offsetHeight,
   width: canvas.offsetWidth,
-  marginLeft: canvas.offsetWidth*0.3,
+  marginLeft: flexiMarg,
   marginRight: 30,
   marginTop: 50,
   fontFamily1: 'Bebas Neue',

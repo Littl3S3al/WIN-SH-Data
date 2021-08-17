@@ -26,11 +26,19 @@ let allCanvas = document.querySelectorAll('.canvas')
 let screenW = window.screen.width;
 let valueFS = '1.5em';
 let labelFS = '1em';
+let keyFS = 1;
+
+
+let md, lg;
 
 if(screenW >= 768 && screenW < 1200){
     valueFS = '2em';
     labelFS = '1.5em';
+    keyFS = 1.5
+    md = true;
 } else if(screenW >= 1200){
     valueFS = '2em';
     labelFS = '2em';
+    keyFS = 2
+    lg = true;
 }

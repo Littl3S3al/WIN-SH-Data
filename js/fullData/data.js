@@ -80,3 +80,7 @@ const finalFilter = (data, key, id) => {
   }
   
   window.onresize = () => {location.reload()}
+
+
+
+ 

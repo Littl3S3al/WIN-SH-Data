@@ -39,6 +39,7 @@ class Footer extends HTMLElement {
           </div>
         </div>
       </footer>
+      <div class="coloured-strip"></div>
         `
     }
 }

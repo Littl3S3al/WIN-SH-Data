@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-@import "var.scss", "mixins.scss", "navbar.scss", "footer.scss", "dropdown.scss", 'homepage.scss', 'fulldata.scss';
+@import "var.scss", "mixins.scss", "navbar.scss", "footer.scss", "dropdown.scss", 'homepage.scss', 'fulldata.scss', 'articles.scss';
 
 body{
     font-family: 'Alegreya Sans', sans-serif!important;
@@ -17,6 +17,9 @@ body#full-bg{
 }
 p{
     font-weight: 300;
+    @include mQ ($lg) {
+        font-size: 1.3em;
+    }
 }
 p.bigger{
     font-weight: 300;
@@ -57,6 +60,7 @@ h1.bigger{
 .form-switch .form-check-input.red-switch{
     background-image: url('../assets/red.svg')
 }
+
 
 
 

@@ -1,8 +1,10 @@
+
 footer{
     color: white;
     margin-top: 100px;
     padding: 50px 0;
-    background: $gradient-opaque;
+    background: $gradient-opaque, url('../assets/backgroundTexture.jpg') center center repeat-y;
+    background-size: cover;
     width: 100vw;
 
 
@@ -39,5 +41,11 @@ footer{
             width: 50px;
         }
     }
+
+}
+.coloured-strip{
+    width: 100vw;
+    height: 10px;
+    background: linear-gradient(90deg, rgba(38,103,255,1) 25%, rgba(46,181,195,1) 25%, rgba(59,181,182,1) 50%, rgba(255,176,0,1) 50%, rgba(255,159,0,1) 75%, rgba(255,71,0,1) 75%);
 
 }

@@ -2188,7 +2188,8 @@ footer {
   color: white;
   margin-top: 100px;
   padding: 50px 0;
-  background: linear-gradient(90deg, rgba(63, 161, 252, 0.5) 0%, rgba(9, 9, 121, 0.5) 45%, rgba(46, 217, 195, 0.5) 100%);
+  background: linear-gradient(90deg, rgba(63, 161, 252, 0.5) 0%, rgba(9, 9, 121, 0.5) 45%, rgba(46, 217, 195, 0.5) 100%), url("../assets/backgroundTexture.jpg") center center repeat-y;
+  background-size: cover;
   width: 100vw;
 }
 footer .red-block {
@@ -2216,6 +2217,12 @@ footer div {
 }
 footer .powered-by img {
   width: 50px;
+}
+
+.coloured-strip {
+  width: 100vw;
+  height: 10px;
+  background: linear-gradient(90deg, #2667ff 25%, #2eb5c3 25%, #3bb5b6 50%, #ffb000 50%, #ff9f00 75%, #ff4700 75%);
 }
 
 .btn-group {
@@ -2484,6 +2491,14 @@ button.dropdown-toggle i {
     transform: translateY(-150px);
   }
 }
+#articles-header {
+  padding: 50px;
+  background: #0c3280;
+}
+#articles-header img {
+  width: 70%;
+}
+
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-size: 1em;
@@ -2498,6 +2513,11 @@ body#full-bg {
 
 p {
   font-weight: 300;
+}
+@media only screen and (min-width: 992px) {
+  p {
+    font-size: 1.3em;
+  }
 }
 
 p.bigger {

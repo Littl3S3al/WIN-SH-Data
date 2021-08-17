@@ -54,15 +54,16 @@ const updateData = (gender, type) => {
   };
   
   //  (runs at start) bring in the csv data - then the json data - then call update
-  d3.csv('../../data/compiled.csv')
+  d3.csv('../data/compiled.csv')
     .then((d) => {
       compiledData = d;
       // console.log(d);
     })
     .then(() => {
-      d3.json('../../data/index.json').then((data) => {
+      d3.json('../data/index.json').then((data) => {
         rootData = data;
         updateData(['f', 'm', 'n'], ['v', 'p']);
       });
     });
   
+    console.log('new structure')

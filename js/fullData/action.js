@@ -108,7 +108,13 @@ const arcPath = d3
   .outerRadius(dims.radius)
   .innerRadius(dims.radius / 3);
 
-const color = d3.scaleOrdinal(['#ffffcc', '#a1dab4', '#41b6c4', '#225ea8']);
+  const myRatio = Math.round(colourScale.length/key.length)
+  let myColours = [];
+  for(let i=0; i < key.length; i++){
+    myColours.push(colourScale[i * myRatio])
+  }
+  
+  const color = d3.scaleOrdinal(myColours);
 
 // legend setup
 const legendGroup = svg
@@ -139,7 +145,7 @@ const update = (data, sumTotal) => {
     .selectAll('text')
     .data(pie(data))
     .attr('fill', 'white')
-    .attr('font-size', labelFS)
+    .attr('font-size', keyFS*0.7 + 'em')
     .attr('font-family', dims.fontFamily)
     .each(function (d) {
       assignClass(d.data.key, this);

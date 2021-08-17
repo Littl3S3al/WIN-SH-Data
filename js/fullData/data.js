@@ -83,4 +83,16 @@ const finalFilter = (data, key, id) => {
 
 
 
- 
+ const colourScale = [
+  '#2eb5c3',
+  '#4fc6c2',
+  '#72d6be',
+  '#97e5bb',
+  '#bcf3ba',
+  '#e3ffbb',
+  '#e0e587',
+  '#e4c854',
+  '#eda725',
+  '#f77f00',
+  '#ff4700'
+ ]

@@ -124,19 +124,13 @@ const arcPath = d3
   .outerRadius(dims.radius)
   .innerRadius(dims.radius / 3);
 
-const color = d3.scaleOrdinal([
-  '#ffffd9',
-  '#edf8b1',
-  '#c7e9b4',
-  '#7fcdbb',
-  '#41b6c4',
-  '#1d91c0',
-  '#225ea8',
-  '#253494',
-  '#081d58',
-  '#00183e',
-  '#00122e',
-]);
+  const myRatio = Math.round(colourScale.length/key.length)
+  let myColours = [];
+  for(let i=0; i < key.length; i++){
+    myColours.push(colourScale[i * myRatio])
+  }
+  
+  const color = d3.scaleOrdinal(myColours);
 
 // legend setup
 const legendGroup = svg

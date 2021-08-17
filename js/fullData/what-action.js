@@ -106,17 +106,13 @@ const dims = {
   fontFamily2: 'Alegreya Sans'
 };
 
-const color = d3.scaleOrdinal([
-  '#ffffd9',
-  '#edf8b1',
-  '#c7e9b4',
-  '#7fcdbb',
-  '#41b6c4',
-  '#1d91c0',
-  '#225ea8',
-  '#253494',
-  '#081d58',
-]);
+const myRatio = Math.round(colourScale.length/key.length)
+let myColours = [];
+for(let i=0; i < key.length; i++){
+  myColours.push(colourScale[i * myRatio])
+}
+
+const color = d3.scaleOrdinal(myColours);
 
 const graphWidth = dims.width - dims.marginLeft - dims.marginRight;
 const graphHeight = dims.height - dims.marginTop * 2;

@@ -12,9 +12,9 @@ class Footer extends HTMLElement {
             <div class="col-sm-12 col-lg-3">
               <div class="red-block"></div>
               <h3>More research links</h3>
-              <a href="/full-data.html">View The Full Data</a>
-              <a href="/reports.html">Get The PDF Reports</a>
-              <a href="/articles.html">Read The Article Summaries</a>
+              <a href="full-data.html">View The Full Data</a>
+              <a href="reports.html">Get The PDF Reports</a>
+              <a href="articles.html">Read The Article Summaries</a>
             </div>
             <div class="col-sm-12 col-lg-3">
               <div class="red-block"></div>

@@ -1,4 +1,8 @@
+.navbar.fixed-top.navbar-dark{
+    background: linear-gradient(0deg, rgba(38,103,255,0.1) 0%, rgba(38,103,255,0) 100%), url('../assets/backgroundTexture.jpg') center center repeat-y;
+    background-size: cover;
 
+}
     .navbar-collapse {
         position: fixed;
         top: 0; /* adjust to height of navbar */
@@ -28,7 +32,7 @@
 
 .navbar-brand{
     img{
-        width: 200px;
+        width: 250px;
     }
 }
 
@@ -41,7 +45,6 @@
 }
 
 #navbarSupportedContent.collapse.navbar-collapse{
-    background-color: $darkBlue;
     background: url('../assets/backgroundTexture.jpg') repeat;
     background-size: auto;
     top: 0;

@@ -40,8 +40,21 @@ $end: 100;
             background-color: rgba($color, ($i) * 1%);
         }
     }
-    text-#{$name}{
+    .text-#{$name}{
         color: $color;
+    }
+    .btn.btn-#{$name}{
+        color: white;
+        background-color: $color;
+        border: 1px solid darken($color, 5);
+        &:hover, &:focus, &:active{
+            color: white;
+            background-color: lighten($color, 10);
+            border: 1px solid $color;
+        }
+        &:focus {
+             box-shadow: 0 0 0 3px rgba($color, 0.4);
+        } 
     }
 }
 

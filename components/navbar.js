@@ -2,7 +2,7 @@ class NavBar extends HTMLElement {
     constructor() {
         super();
         this.innerHTML = `
-        <nav class="navbar fixed-top navbar-dark bg-darkBlue-80" id="my-nav">
+        <nav class="navbar fixed-top navbar-dark shadow" id="my-nav">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
             <img src="assets/logo-white.svg" alt="Women In News"/>

@@ -11,6 +11,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
+
+  <div class="back-button">
+    <button class="btn btn-darkBlue d-flex align-items-center" onclick="history.back()">
+      <i class="material-icons">arrow_back</i> BACK
+    </button>
+  </div>
+  
+  <div class="to-top-button">
+    <button class="btn btn-darkBlue d-flex align-items-center">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+  </div>
+
+  <div id="top-of-site-pixel-anchor"></div>
     
     <my-navbar></my-navbar>
 
@@ -22,6 +36,7 @@
             <div class="col-sm-12 col-lg-6">
                 <h2>Sexual Harassment in the Media</h2>
                 <h1 class="bigger">Full Report</h1>
+
                 <div class="accordion accordion-flush shadow" id="accordionFlushExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingOne">
@@ -31,14 +46,14 @@
                       </h2>
                       <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <a href="reports/SexualHarassmentInTheMedia-Africa-English.pdf" class="btn btn-primary" target="_blank">English</a>
+                            <a href="reports/SexualHarassmentInTheMedia-Africa-English.pdf" class="btn btn-teal" target="_blank">English</a>
                         </div>
                       </div>
                     </div>
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            <i class="material-icons me-2">picture_as_pdf</i> South East Asia Report
+                            <i class="material-icons me-2">picture_as_pdf</i> Southeast Asia Report
                         </button>
                       </h2>
                       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -84,7 +99,11 @@
                         </div>
                       </div>
                     
-                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <a href="https://sexualharassment.womeninnews.org/en/" class="btn btn-lg btn-darkBlue">Go To Sexual Harassment Toolkit</a>
+                </div>
             </div>
 
             
@@ -97,5 +116,7 @@
     <script src="components/footer.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <script src="js/gen/index.js"></script>
 </body>
 </html>

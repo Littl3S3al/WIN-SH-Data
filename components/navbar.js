@@ -19,7 +19,7 @@ class NavBar extends HTMLElement {
                 <rect y="20" width="100" height="10"></rect>
                 <rect y="50" width="100" height="10"></rect>
           </button>
-
+    
           <!-- !nav bar open -->
           <div class="collapse navbar-collapse text-end" id="navbarSupportedContent">
             <div class="container-fluid">
@@ -29,29 +29,34 @@ class NavBar extends HTMLElement {
                   </i>
               </button>
             </div>
-
-              <ul class="navbar-nav me-auto text-start p-4">
-                <li class="red-block"><div class="block"></div></li>
-                <li class="nav-item nav-title">
-                  <a class="nav-link" aria-current="page" href="index.html">Sexual Harassment Data</a>
-                </li>
-                <li class="nav-item">
-                  <a href="full-data.html" class="nav-link">Full Data Section</a>
-                </li>
-                <li class="nav-item">
-                  <a href="articles.html" class="nav-link">Articles</a>
-                </li>
-                <li class="nav-item">
-                  <a href="reports.html" class="nav-link">PDF Reports</a>
-                </li>
-                <li class="red-block"><div class="block"></div></li>
-                <li class="nav-item nav-title">
-                  <a href="https://sexualharassment.womeninnews.org/en/" class="nav-link">
-                    <i class="material-icons">arrow_back</i> Sexual Harassment Toolkit
-                  </a>
-                </li>
-              </ul>
-
+    
+            <div class="navbar-nav text-white text-start">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="red-block"></div>
+                      <a href="https://sexualharassment.womeninnews.org/en/facts/what-is-sexual-harassment"><h1>What Is Sexual Harassment</h1></a>
+                      <a href="https://sexualharassment.womeninnews.org/en/facts/chapter/chapter_1/0">Data</a>
+                      <a href="https://sexualharassment.womeninnews.org/en/facts/chapter/chapter_2/0">What Counts As Sexual Harassment?</a>
+                      <a href="https://sexualharassment.womeninnews.org/en/facts/chapter/chapter_3/0">Costs</a>
+                      <div class="red-block"></div>
+                      <a href="https://sexualharassment.womeninnews.org/en/scenes"><h1>How To Deal With Sexual Harassment</h1></a>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                      <div class="red-block"></div>
+                      <a href="https://sexualharassment.womeninnews.org/en/facts/what-is-sexual-harassment"><h1>Sexual Harassment Research 2021</h1></a>
+                      <a href="full-data.html">Full Data</a>
+                      <a href="articles.html">Articles</a>
+                      <a href="reports.html">PDF Reports</a>
+                    </div>
+                    <div class="col-sm-12 lasties">
+                        <a href="https://sexualharassment.womeninnews.org/en/resources">Resources</a>
+                        <a href="https://sexualharassment.womeninnews.org/en/testimonies">Testimonials</a>
+                        <a href="https://sexualharassment.womeninnews.org/en/support-directory">Support Directory</a>
+                        <a href="https://sexualharassment.womeninnews.org/en/glossary">Glossary</a>
+                        <a href="https://sexualharassment.womeninnews.org/en/about-us">About</a>
+                    </div>
+                  </div>
+            </div>
               
                 <div class="row nav-end d-flex align-items-end">
                   <!-- *social media icons -->
@@ -70,9 +75,9 @@ class NavBar extends HTMLElement {
                     <div class="red-block"></div>
                   </div>
                 </div>
-  
+    
             </div>
-  
+    
                 
               
           </div>

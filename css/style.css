@@ -2128,18 +2128,24 @@
 }
 
 .navbar-collapse.collapsing {
+  height: 100%;
   right: -100%;
-  transition: right 0s ease;
+  top: 0;
+  background: url("../assets/backgroundTexture.jpg") repeat;
 }
 
 .navbar-collapse.show {
   right: 0;
-  transition: right 300ms ease-in-out;
+  height: 100%;
+  transition: right 0.4s ease-in-out;
 }
 
 .navbar-toggler.collapsed ~ .navbar-collapse {
   right: -100%;
-  transition: right 20ms ease-in-out;
+  height: 100%;
+  top: 0;
+  transition: right 0.5s ease-in-out;
+  background: url("../assets/backgroundTexture.jpg") repeat;
 }
 
 .navbar-brand img {
@@ -2165,45 +2171,17 @@
   overflow-y: scroll;
   font-weight: 200;
 }
-@media only screen and (min-width: 768px) {
-  #navbarSupportedContent.collapse.navbar-collapse .navbar-nav {
-    font-size: 1.5em;
-    line-height: 1em;
-    padding-top: 150px !important;
-  }
-}
-@media only screen and (min-width: 992px) {
-  #navbarSupportedContent.collapse.navbar-collapse .navbar-nav {
-    font-size: 2em;
-    line-height: 1.5em;
-    padding: 50px 100px !important;
-  }
-}
-#navbarSupportedContent.collapse.navbar-collapse li.nav-link {
-  color: white;
-}
-#navbarSupportedContent.collapse.navbar-collapse li.red-block div {
-  margin-top: 20px;
-  width: 100px;
-  height: 10px;
-  background: #ff4700;
-}
 
-#my-nav li a {
+#my-nav a {
   color: white;
+  text-decoration: none;
 }
-#my-nav li a:hover {
+#my-nav a:hover {
   color: #ff4700;
   transition: color 0.5s;
 }
-#my-nav li a i {
+#my-nav a i {
   font-size: 0.5em;
-}
-
-li.nav-title {
-  font-weight: 500;
-  font-size: 2em;
-  line-height: 1em;
 }
 
 #close-btn {
@@ -2221,11 +2199,11 @@ li.nav-title {
 }
 
 .nav-end {
-  margin-top: 150px;
+  margin-top: 300px;
 }
 @media only screen and (min-width: 768px) {
   .nav-end {
-    padding-top: 100px;
+    padding: 100px 10px 0 10px;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -2235,11 +2213,17 @@ li.nav-title {
 }
 .nav-end .social-feed a {
   display: block;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .nav-end .social-feed a img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+}
+@media only screen and (min-width: 992px) {
+  .nav-end .social-feed a img {
+    width: 60px;
+    height: 60px;
+  }
 }
 .nav-end .nav-contact {
   padding-right: 50px;
@@ -2250,12 +2234,78 @@ li.nav-title {
   font-size: 1.5em;
   font-weight: 300;
 }
+@media only screen and (min-width: 992px) {
+  .nav-end .nav-contact a.nav-item {
+    font-size: 1.7em;
+  }
+}
 .nav-end .nav-contact .red-block {
   margin: 20px 0;
   width: 100px;
   height: 10px;
   background: #ff4700;
   float: right;
+}
+
+.navbar-nav .row {
+  margin: 50px 0;
+  line-height: 1.5rem;
+}
+.navbar-nav .row .red-block {
+  height: 15px;
+  width: 80px;
+  background: #ff4700;
+  margin: 20px 0;
+}
+@media only screen and (min-width: 768px) {
+  .navbar-nav .row {
+    margin: 50px 70px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .navbar-nav .row {
+    margin: 50px 300px;
+  }
+}
+.navbar-nav .row h1 {
+  margin-left: -20px;
+  font-size: 1.5em;
+}
+@media only screen and (min-width: 992px) {
+  .navbar-nav .row h1 {
+    font-size: 1.6em;
+  }
+}
+.navbar-nav .row a {
+  margin-left: 20px;
+  display: block;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+@media only screen and (min-width: 992px) {
+  .navbar-nav .row a {
+    font-size: 1.6em;
+  }
+}
+.navbar-nav .row .lasties {
+  margin-top: 40px;
+}
+@media only screen and (min-width: 992px) {
+  .navbar-nav .row .lasties {
+    margin-top: 60px;
+  }
+}
+.navbar-nav .row .lasties a {
+  margin-left: 0;
+  display: inline;
+  margin-right: 10px;
+  border-bottom: 5px solid #ff4700;
+}
+@media only screen and (min-width: 992px) {
+  .navbar-nav .row .lasties a {
+    margin-right: 30px;
+  }
 }
 
 footer {
@@ -2378,6 +2428,10 @@ button.dropdown-toggle i {
   }
 }
 
+#heading-container {
+  border-bottom: 1px solid #2eb5c3;
+}
+
 #data-toggles {
   padding: 10px 0;
   color: white;
@@ -2437,37 +2491,25 @@ button.dropdown-toggle i {
 #data-container #value-africa {
   display: none;
 }
-#data-container #total-value {
-  width: calc(100% - 50px);
-  padding: 10px 25px;
-  z-index: 1000;
-  top: 0;
-  left: 0;
+#data-container .canvas {
+  min-height: 60vh;
+}
+
+#total-value {
+  padding: 10px;
   color: white;
   background: #0c3280;
-  border: 2px solid #2eb5c3;
-  position: absolute;
-  margin: 25px;
+  margin: 5px;
   text-align: center;
 }
-@media only screen and (min-width: 768px) {
-  #data-container #total-value {
-    width: auto;
-    padding: 25px;
-  }
-}
-#data-container #total-value h1 {
+#total-value h3 {
   text-transform: uppercase;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 0.2em;
-  font-size: 2em;
+  font-size: 1em;
 }
-#data-container #total-value h2 {
+#total-value h2 {
   font-family: "Bebas Neue", cursive;
-}
-#data-container .canvas {
-  margin-top: 100px;
-  min-height: 60vh;
 }
 
 .content-header {
@@ -2591,6 +2633,46 @@ button.dropdown-toggle i {
   opacity: 0.2;
 }
 
+.canvas-container {
+  padding-top: 10px;
+  background: #f2f2f2 !important;
+}
+
+.art-canvas {
+  width: 100%;
+  height: 150px;
+}
+@media only screen and (min-width: 768px) {
+  .art-canvas {
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .art-canvas {
+    height: 300px;
+  }
+}
+
+.display-graphs h3 {
+  font-family: "Bebas Neue";
+}
+
+.infographic {
+  opacity: 0;
+}
+
+.art-in {
+  animation: fadeIn 0.5s 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-size: 1em;
@@ -2609,11 +2691,18 @@ body#full-bg {
 }
 
 .back-button {
+  z-index: 1000;
   position: fixed;
-  left: 20px;
-  top: 100px;
+  top: 80px;
+  left: 0;
   opacity: 0;
   animation: jump-in 0.5s 2s ease forwards;
+}
+@media only screen and (min-width: 768px) {
+  .back-button {
+    left: 20px;
+    top: 100px;
+  }
 }
 
 @keyframes jump-in {
@@ -2631,6 +2720,7 @@ body#full-bg {
   }
 }
 .to-top-button {
+  z-index: 1000;
   position: fixed;
   bottom: -20px;
   right: 20px;
@@ -2675,6 +2765,10 @@ ul li {
 p.bigger {
   font-weight: 300;
   font-size: 1.5em;
+}
+
+p.smaller {
+  font-size: 1em;
 }
 
 h1.bigger {

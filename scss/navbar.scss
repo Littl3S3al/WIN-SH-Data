@@ -15,18 +15,24 @@
     }
 
     .navbar-collapse.collapsing {
+        height: 100%;
         right: -100%;
-        transition: right 0s ease;
+        top: 0;
+        background: url('../assets/backgroundTexture.jpg') repeat;
     }
 
     .navbar-collapse.show {
         right: 0;
-        transition: right 300ms ease-in-out;
+        height: 100%;
+        transition: right 0.4s ease-in-out;
     }
 
     .navbar-toggler.collapsed ~ .navbar-collapse {
         right: -100%;
-        transition: right 20ms ease-in-out;
+        height: 100%;
+        top: 0;
+        transition: right 0.5s ease-in-out;
+        background: url('../assets/backgroundTexture.jpg') repeat;
     }
 
 
@@ -55,36 +61,12 @@
     overflow-y: scroll;
     font-weight: 200;
 
-    .navbar-nav{
-        @include mQ ($md) {
-            font-size: 1.5em;
-            line-height: 1em;
-            padding-top: 150px!important;
-        }
-    }
-    .navbar-nav{
-        @include mQ ($lg) {
-            font-size: 2em;
-            line-height: 1.5em;
-            padding: 50px 100px!important;
-        }
-    }
-    li.nav-link{
-        color: white;
-    }
-
-    li.red-block{
-        div{
-            margin-top: 20px;
-            width: 100px;
-            height: 10px;
-            background: $red;
-        }
-    }
+    
 }
 
-#my-nav li a{
+#my-nav a{
     color: white;
+    text-decoration: none;
     &:hover{
         color: $red;
         transition: color 0.5s;
@@ -92,11 +74,6 @@
     i{
         font-size: 0.5em;
     }
-}
-li.nav-title{
-    font-weight: 500;
-    font-size: 2em;
-    line-height: 1em;
 }
 #close-btn{
     font-size: 2em;
@@ -111,9 +88,9 @@ li.nav-title{
 }
 
 .nav-end{
-    margin-top: 150px;
+    margin-top: 300px;
     @include mQ ($md) {
-        padding-top: 100px;
+        padding: 100px 10px 0 10px;
     }
     @include mQ ($lg){
         padding: 50px 50px;
@@ -121,10 +98,14 @@ li.nav-title{
     .social-feed{
         a{
             display: block;
-            margin-top: 10px;
+            margin-bottom: 10px;
             img{
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
+                @include mQ ($lg){
+                    width: 60px;
+                    height: 60px;
+                }
             }
         }
     }
@@ -135,6 +116,9 @@ li.nav-title{
             color: white;
             font-size: 1.5em;
             font-weight: 300;
+            @include mQ ($lg){
+                font-size: 1.7em;
+            }
         }
         .red-block{
             margin: 20px 0;
@@ -142,6 +126,55 @@ li.nav-title{
             height: 10px;
             background: $red;
             float: right;
+        }
+    }
+}
+
+.navbar-nav .row{
+    .red-block{
+        height: 15px;
+        width: 80px;
+        background: $red;
+        margin: 20px 0;
+    }
+    margin: 50px 0;
+    line-height: 1.5rem;
+    @include mQ ($md){
+        margin: 50px 70px;
+    }
+    @include mQ ($lg){
+        margin: 50px 300px;
+    }
+    h1{
+        margin-left: -20px;
+        font-size: 1.5em;
+        @include mQ ($lg){
+            font-size: 1.6em;
+        }
+    }
+    a{
+        @include mQ ($lg){
+            font-size: 1.6em;
+        }
+        margin-left: 20px;
+        display: block;
+        font-weight: 400;
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+    .lasties{
+        margin-top: 40px; 
+        @include mQ ($lg){
+            margin-top: 60px;
+        }
+        a{
+            margin-left: 0;
+            display: inline;
+            margin-right: 10px;
+            border-bottom: 5px solid $red;
+            @include mQ ($lg){
+                margin-right: 30px;
+            }
         }
     }
 }

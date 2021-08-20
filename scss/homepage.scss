@@ -28,7 +28,9 @@
     }
 }
 
-
+#heading-container{
+    border-bottom: 1px solid $teal;
+}
 #data-toggles{
     padding: 10px 0;
     color: white;
@@ -81,35 +83,25 @@
     #value-africa{
         display: none;
     }
-    #total-value{
-        width: Calc(100% - 50px);
-        padding: 10px 25px;
-
-        @include mQ ($md) {
-            width: auto;
-            padding: 25px;
-        }
-        z-index: 1000;
-        top: 0;
-        left: 0;
-        color: white;
-        background: rgba($darkBlue, 50);
-        border: 2px solid $teal;
-        position: absolute;
-        margin: 25px; 
-        text-align: center;
-        h1{
-            text-transform: uppercase;
-            font-weight: 200;
-            letter-spacing: 0.2em;
-            font-size: 2em;
-        }
-        h2{
-            font-family: 'Bebas Neue', cursive;
-        }
-    }
     .canvas{
-        margin-top: 100px;
         min-height: 60vh;
+    }
+}
+
+#total-value{
+    padding: 10px;
+    color: white;
+    background: rgba($darkBlue, 50);
+    margin: 5px; 
+    text-align: center;
+
+    h3{
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.2em;
+        font-size: 1em;
+    }
+    h2{
+        font-family: 'Bebas Neue', cursive;
     }
 }

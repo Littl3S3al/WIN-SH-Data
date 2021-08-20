@@ -31,7 +31,12 @@
 
   <div id="top-of-site-pixel-anchor"></div>
 
-    <my-navbar></my-navbar>
+    
+  
+  
+
+  <my-navbar></my-navbar>
+
     <div class="divider"></div>
 
 
@@ -50,27 +55,31 @@
 
       <div id="overview" class="row">
         <div id="data-overview" class="bg-blue-20 col-sm-12 col-lg-8 my-rounded d-flex flex-column">
-
+          <!-- *heading container -->
+          <div id="heading-container" class="row text-white">
+            <div class="col-12 text-center mt-3">
+              <h1>Prevalence Of Sexual Harassment</h1>
+            </div>
+            <div class="col-12 text-center">
+              <p class="smaller">Click on the toggles at the bottom to filter results by gender, type of harassment and action taken.
+                <br>
+                Zoom in and out to get a better picture.
+              </p>
+            </div>
+          </div>
           <!-- *data container -->
           <div id="data-container" class="h-100 flex-grow-1">
             <div class="canvas h-100 w-100">
-            </div>
-            <div id="total-value" class="my-rounded">
-              <h1>Africa</h1>
-              <h2><span id="Africa-Value"></span>%</h2>
             </div>
           </div>
 
           <!-- *data toggles -->
           <div id="data-toggles" class="row">
-            <div class="col-sm-12 text-center mb-4">
-              <h5>Prevalence of Sexual Harassment in Africa</h5>
-            </div>
             <div class="col-sm-12 col-md-12 col-lg-5">
-              <p>Click on the toggles to filter results by gender, type of harassment and action taken.</p>
-              <p>
-                Zoom in and out to get a better picture.
-              </p>
+            <div id="total-value" class="my-rounded text-center mx-auto">
+              <h3>Total Prevalence in Africa</h3>
+              <h2><span id="Africa-Value"></span>%</h2>
+            </div>
             </div>
             <!-- *gender column -->
             <div class="toggles col-sm-6 col-md-3 col-lg-2">

@@ -22,11 +22,16 @@ body#full-bg{
 
 
 .back-button{
+    z-index: 1000;
     position: fixed;
-    left: 20px;
-    top: 100px;
+    top: 80px;
+    left:0;
     opacity: 0;
     animation: jump-in 0.5s 2s ease forwards;
+    @include mQ ($md){
+        left: 20px;
+        top: 100px;
+    }
 
 }
 @keyframes jump-in {
@@ -45,6 +50,7 @@ body#full-bg{
 }
 
 .to-top-button{
+    z-index: 1000;
     position: fixed;
     bottom: -20px;
     right: 20px;
@@ -89,6 +95,9 @@ ul li{
 p.bigger{
     font-weight: 300;
     font-size: 1.5em;
+}
+p.smaller{
+    font-size: 1em;
 }
 h1.bigger{
     font-size: 3em;

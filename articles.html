@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -72,22 +73,28 @@
                     <hr>
                     <p>African media has a sexual harassment problem. But many cases of physical and verbal sexual harassment go unreported because of fear of further victimisation and a lack of confidence in management systems and interventions. When action is taken, results are often underwhelming.</p>
                     <p>WIN’s latest research, the first phase of a multi-region study, set out to collect credible information about the scale of harassment in news outlets in Africa and to establish what was being done to provide safer newsrooms.</p>
-                    <div class="p-3 row">
-                        <div class="col-sm-12 col-md-6 mt-3">
+                    <div class="p-1 row">
+                        <div class="col-sm-12 col-md-6 mt-3 art-canvas infographic">
                             <img src="assets/africa-article/1-in-2.svg" alt="" class="img-fluid">
                         </div>
-                        <div class="col-sm-12 col-md-6 mt-3">
+                        <div class="col-sm-12 col-md-6 mt-3 art-canvas infographic">
                             <img src="assets/africa-article/1-in-3.svg" alt="" class="img-fluid">
                         </div>
                     </div>
                     <hr>
                     <h1 class="text-center">Prevalence</h1>
-                    <div class="p-3 row">
-                        <div class="col-sm-12 col-md-6 mt-3">
-                            <img src="assets/africa-article/verbal.svg" alt="" class="img-fluid">
+                    <div class="p-3 row display-graphs">
+                        <div class="col-sm-12 mt-3 canvas-container">
+                          <div class="text-center text-darkBlue">
+                            <h3>Prevalence of Verbal Sexual Harassment</h3>
+                          </div>
+                            <div id="canvas-verbal" class="art-canvas rounded"></div>
                         </div>
-                        <div class="col-sm-12 col-md-6 mt-3">
-                            <img src="assets/africa-article/physical.svg" alt="" class="img-fluid">
+                        <div class="col-sm-12 mt-3 canvas-container">
+                          <div class="text-center text-red">
+                            <h3>Prevalence of Physical Sexual Harassment</h3>
+                          </div>
+                            <div id="canvas-physical" class="art-canvas rounded"></div>
                         </div>
                     </div>
                     <p>
@@ -169,7 +176,12 @@
                       </p>
 
                       <div class="my-3">
-                          <img src="assets/africa-article/africa-article-3.svg" alt="" class="img-fluid">
+                        <div class="col-sm-12 mt-3 canvas-container display-graphs">
+                          <div class="text-center text-blue">
+                            <h3>Who Are the Perpetrators?</h3>
+                          </div>
+                            <div id="canvas-perp" class="art-canvas rounded"></div>
+                        </div>
                       </div>
                       <hr>
 
@@ -239,8 +251,29 @@
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- legend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+    <!-- tooltips -->
+    <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/bumbeishvili/d3-tip-for-v6@4/d3-tip.min.css"
+    />
+
 
     <script src="js/gen/index.js"></script>
+    <script src="js/gen/articles.js"></script>
+
+    <script src="js/articles/horizontalBar.js"></script>
+    <script src="js/articles/prevalence.js"></script>
+    <script src="js/articles/perp.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+   
   </body>
 </html>

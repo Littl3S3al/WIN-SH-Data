@@ -24,13 +24,6 @@ let observer = new IntersectionObserver(
                   clearCanvas('#canvas-perp')
               }
           }
-          if(entry.target.classList.contains('infographic')){
-            if (entry.intersectionRatio > 0) {
-              entry.target.classList.add('art-in');
-            } else {
-                entry.target.classList.remove('art-in');
-            }
-          }
           });
     },
     {rootMargin: '0px 0px -20px 0px', threshold: 0, root: null}

@@ -1,0 +1,84 @@
+.experience{
+    opacity: 0;
+}
+.not.reported{
+    opacity: 0;
+}
+.no.action{
+    opacity: 0;
+}
+
+.hidden{
+    opacity: 0!important;
+}
+.reported, .action{
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1s ease;
+    &:hover{
+        cursor: default;
+    }
+}
+
+
+
+.my-tooltip{
+    position: absolute;
+    top: 50px;
+    left: 30%;
+    padding: 10px; 
+    background-color: rgba(darken($darkBlue, 5), 0.9);
+    width: 40%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid $blue;
+    opacity: 0;
+    display: none;
+    table{
+        font-weight: 500;
+    }
+    
+}
+
+.my-tooltip:after{
+    box-sizing: border-box;
+    display: inline;
+    font-size: 30px;
+    width: 100%;
+    margin-top: 10px;
+    line-height: 1;
+    color: $blue;
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+
+@keyframes animateIn {
+    0%{
+        opacity: 0;
+        top: 200px
+    }
+    100%{
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+@keyframes animateOut {
+    100%{
+        opacity: 0;
+        top: 200px
+    }
+    0%{
+        opacity: 1;
+        top: 50px;
+    }
+}
+
+.tip-show{
+    animation: animateIn 0.5s ease forwards;
+}
+.tip-hide{
+    animation: animateOut 0.5s ease forwards;
+}

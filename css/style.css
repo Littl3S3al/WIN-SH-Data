@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .bg-darkBlue-0 {
@@ -2453,14 +2454,27 @@ button.dropdown-toggle i {
   color: white;
   text-decoration: none;
 }
-#data-links i.material-icons {
+#data-links i.material-icons.arrow {
   color: #ff4700;
   font-size: 2em;
+  margin-right: 10px;
 }
 @media only screen and (min-width: 768px) {
-  #data-links i.material-icons {
+  #data-links i.material-icons.arrow {
     font-size: 3em;
   }
+}
+#data-links i.material-icons.my-icon {
+  color: white;
+  font-size: 2em;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid white;
 }
 #data-links .my-links {
   margin: 0 20px;
@@ -2492,24 +2506,26 @@ button.dropdown-toggle i {
   display: none;
 }
 #data-container .canvas {
-  min-height: 60vh;
+  min-height: 40vh;
 }
 
 #total-value {
   padding: 10px;
   color: white;
-  background: #0c3280;
   margin: 5px;
-  text-align: center;
 }
 #total-value h3 {
-  text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
-  font-size: 1em;
+  font-size: 1.2em;
 }
-#total-value h2 {
+#total-value h3 span {
   font-family: "Bebas Neue", cursive;
+}
+
+.red-hover:hover {
+  color: #ff4700;
+  transition: all 0.5s;
 }
 
 .content-header {
@@ -2673,6 +2689,89 @@ button.dropdown-toggle i {
     opacity: 1;
   }
 }
+.experience {
+  opacity: 0;
+}
+
+.not.reported {
+  opacity: 0;
+}
+
+.no.action {
+  opacity: 0;
+}
+
+.hidden {
+  opacity: 0 !important;
+}
+
+.reported, .action {
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.reported:hover, .action:hover {
+  cursor: default;
+}
+
+.my-tooltip {
+  position: absolute;
+  top: 50px;
+  left: 30%;
+  padding: 10px;
+  background-color: rgba(10, 41, 105, 0.9);
+  width: 40%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid #2667ff;
+  opacity: 0;
+  display: none;
+}
+.my-tooltip table {
+  font-weight: 500;
+}
+
+.my-tooltip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 30px;
+  width: 100%;
+  margin-top: 10px;
+  line-height: 1;
+  color: #2667ff;
+  content: "▼";
+  position: absolute;
+  text-align: center;
+}
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    top: 200px;
+  }
+  100% {
+    opacity: 1;
+    top: 50px;
+  }
+}
+@keyframes animateOut {
+  100% {
+    opacity: 0;
+    top: 200px;
+  }
+  0% {
+    opacity: 1;
+    top: 50px;
+  }
+}
+.tip-show {
+  animation: animateIn 0.5s ease forwards;
+}
+
+.tip-hide {
+  animation: animateOut 0.5s ease forwards;
+}
+
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-size: 1em;
@@ -2696,7 +2795,7 @@ body#full-bg {
   top: 80px;
   left: 0;
   opacity: 0;
-  animation: jump-in 0.5s 2s ease forwards;
+  animation: jump-in 0.5s ease forwards;
 }
 @media only screen and (min-width: 768px) {
   .back-button {
@@ -2748,7 +2847,7 @@ p {
 }
 @media only screen and (min-width: 992px) {
   p {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -2758,7 +2857,7 @@ ul li {
 }
 @media only screen and (min-width: 992px) {
   ul li {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 }
 

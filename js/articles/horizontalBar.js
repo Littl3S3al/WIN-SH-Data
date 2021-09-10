@@ -57,7 +57,7 @@ let myGradientId = `url(#gradient-${dataCat})`
 
 
   // Scale the range of the data in the domains
-  x.domain([0, d3.max(data, function(d){ return d[dataCat]; })])
+  x.domain([0, d3.max(data, function(d){ return d[dataCat] })])
   y.domain(data.map(function(d) { return d[key] }));
   //y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 

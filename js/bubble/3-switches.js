@@ -1,3 +1,15 @@
+const filterArray = (input, array) => {
+    if (input.checked && !array.includes(input.value)) {
+      array.push(input.value);
+    } else if (!input.checked) {
+      array = array.filter((item) => item !== input.value);
+    }
+    return array;
+  }
+
+
+
+
 document.addEventListener('click', (e) => {
     // asign variables according to switches on
     switches.forEach((input) => {
@@ -37,10 +49,21 @@ document.addEventListener('click', (e) => {
         case 'reported':
           if (!reported) {
             switches[6].checked = false;
+            document.querySelectorAll('.reported').forEach(reported => reported.classList.add('hidden'))
+            document.querySelectorAll('.action').forEach(reported => reported.classList.add('hidden'))
+          } else {
+            document.querySelectorAll('.reported').forEach(reported => reported.classList.remove('hidden'))
           }
           break;
         case 'action':
-          switches[5].checked = true;
+          if(action){
+            switches[5].checked = true;
+            document.querySelectorAll('.reported').forEach(reported => reported.classList.remove('hidden'))
+            document.querySelectorAll('.action').forEach(reported => reported.classList.remove('hidden'))
+          } else {
+            document.querySelectorAll('.action').forEach(reported => reported.classList.add('hidden'))
+          }
+          
           break;
         default:
           break;
@@ -50,23 +73,7 @@ document.addEventListener('click', (e) => {
       if(switches[6].checked){reported, action = true}
   
       // UPDATE BUBBLE DATA IF SWITCHES WERE CLICKED
-      updateData(gender, type);
+      updateData(baseData, gender, type);
 
     }
   });
-  
-  function filterArray(input, array) {
-    if (input.checked && !array.includes(input.value)) {
-      array.push(input.value);
-    } else if (!input.checked) {
-      array = array.filter((item) => item !== input.value);
-    }
-    return array;
-  }
-  
-  
-  
-  
-
-  
-  

@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-@import "var.scss", "mixins.scss", "navbar.scss", "footer.scss", "dropdown.scss", 'homepage.scss', 'fulldata.scss', 'articles.scss';
+@import "var.scss", "mixins.scss", "navbar.scss", "footer.scss", "dropdown.scss", 'homepage.scss', 'fulldata.scss', 'articles.scss', 'bubbles.scss';
 
 body{
     font-family: 'Alegreya Sans', sans-serif!important;
@@ -27,7 +27,7 @@ body#full-bg{
     top: 80px;
     left:0;
     opacity: 0;
-    animation: jump-in 0.5s 2s ease forwards;
+    animation: jump-in 0.5s ease forwards;
     @include mQ ($md){
         left: 20px;
         top: 100px;
@@ -82,14 +82,14 @@ body#full-bg{
 p{
     font-weight: 400;
     @include mQ ($lg) {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 }
 ul li{
     font-size: 1em;
     font-weight: 400;
     @include mQ ($lg) {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 }
 p.bigger{

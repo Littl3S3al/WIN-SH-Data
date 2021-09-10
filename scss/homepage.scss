@@ -48,12 +48,25 @@
         color: white;
         text-decoration: none;
     }
-    i.material-icons{
+    i.material-icons.arrow{
         color: $red;
         font-size: 2em;
+        margin-right: 10px;
         @include mQ ($md) {
             font-size: 3em;
         }
+    }
+    i.material-icons.my-icon{
+        color: white;
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        border: 1px solid white;
     }
     .my-links{
         margin: 0 20px;
@@ -84,24 +97,26 @@
         display: none;
     }
     .canvas{
-        min-height: 60vh;
+        min-height: 40vh;
     }
 }
 
 #total-value{
     padding: 10px;
     color: white;
-    background: rgba($darkBlue, 50);
     margin: 5px; 
-    text-align: center;
 
     h3{
-        text-transform: uppercase;
-        font-weight: 300;
+        font-weight: 500;
         letter-spacing: 0.2em;
-        font-size: 1em;
+        font-size: 1.2em;
+        span{
+            font-family: 'Bebas Neue', cursive;
+        }
     }
-    h2{
-        font-family: 'Bebas Neue', cursive;
-    }
+}
+
+.red-hover:hover{
+    color: $red;
+    transition: all 0.5s;
 }

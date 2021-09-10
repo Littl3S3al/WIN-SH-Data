@@ -82,3 +82,25 @@
 .tip-hide{
     animation: animateOut 0.5s ease forwards;
 }
+
+
+#toggleInstructions{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    padding: 10px 10px 0 10px;
+    border-radius: 10px 10px 0 0 ;
+    width: 20%;
+    z-index: 100;
+}
+
+#overall-table{
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+.indented{
+    padding-left: 30px!important;
+}
+

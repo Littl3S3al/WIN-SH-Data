@@ -85,3 +85,17 @@
       transform: translateY(-150px)
   }
 }
+
+#viewArtButton{
+  text-decoration: none;
+  
+  .arrow{
+    font-size: 3em;
+  }
+  .my-rounded{
+    transition: 0.5s;
+    &:hover{
+      background: rgba($teal, 0.8)
+    }
+  }
+}

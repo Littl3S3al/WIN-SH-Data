@@ -2,14 +2,14 @@
     padding: 25px;
     min-height: 80vh;
     height: auto;
-    background: url('../assets//images/media-manager.jpg') -150px center no-repeat;
-    background-size: cover;
+    background: url('../assets/images/media-manager.jpg') center -150px no-repeat;
+    background-size: contain;
     box-shadow: 0 0 15px rgba(darken($darkBlue, 50), 0.5);
     @include mQ ($md, landscape) {
         min-height: 40vh;
     }
     @include mQ ($lg){
-        background: url('../assets//images/media-manager.jpg') center center no-repeat;
+        background: url('../assets/images/media-manager.jpg') center -150px no-repeat;
     }
     .red-block{
         width: 200px;
@@ -106,17 +106,29 @@
     color: white;
     margin: 5px; 
 
-    h3{
+    h3, span{
         font-weight: 500;
         letter-spacing: 0.2em;
         font-size: 1.2em;
-        span{
-            font-family: 'Bebas Neue', cursive;
-        }
+        text-transform: uppercase;
     }
 }
 
 .red-hover:hover{
     color: $red;
     transition: all 0.5s;
+}
+#win-quote{
+    
+}
+i.quote{
+    color: $red!important;
+    font-size: 3em;
+    
+    
+}
+i.rotate{
+    
+        transform: rotate(180deg)
+    
 }

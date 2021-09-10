@@ -2396,8 +2396,8 @@ button.dropdown-toggle i {
   padding: 25px;
   min-height: 80vh;
   height: auto;
-  background: url("../assets//images/media-manager.jpg") -150px center no-repeat;
-  background-size: cover;
+  background: url("../assets/images/media-manager.jpg") center -150px no-repeat;
+  background-size: contain;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 @media only screen and (min-width: 768px) and (orientation: landscape) {
@@ -2407,7 +2407,7 @@ button.dropdown-toggle i {
 }
 @media only screen and (min-width: 992px) {
   #opening {
-    background: url("../assets//images/media-manager.jpg") center center no-repeat;
+    background: url("../assets/images/media-manager.jpg") center -150px no-repeat;
   }
 }
 #opening .red-block {
@@ -2514,18 +2514,25 @@ button.dropdown-toggle i {
   color: white;
   margin: 5px;
 }
-#total-value h3 {
+#total-value h3, #total-value span {
   font-weight: 500;
   letter-spacing: 0.2em;
   font-size: 1.2em;
-}
-#total-value h3 span {
-  font-family: "Bebas Neue", cursive;
+  text-transform: uppercase;
 }
 
 .red-hover:hover {
   color: #ff4700;
   transition: all 0.5s;
+}
+
+i.quote {
+  color: #ff4700 !important;
+  font-size: 3em;
+}
+
+i.rotate {
+  transform: rotate(180deg);
 }
 
 .content-header {
@@ -2623,6 +2630,19 @@ button.dropdown-toggle i {
     transform: translateY(-150px);
   }
 }
+#viewArtButton {
+  text-decoration: none;
+}
+#viewArtButton .arrow {
+  font-size: 3em;
+}
+#viewArtButton .my-rounded {
+  transition: 0.5s;
+}
+#viewArtButton .my-rounded:hover {
+  background: rgba(46, 181, 195, 0.8);
+}
+
 .article-header {
   background: url("../assets/backgroundTexture.jpg") center center repeat-y;
   background-size: cover;
@@ -2770,6 +2790,27 @@ button.dropdown-toggle i {
 
 .tip-hide {
   animation: animateOut 0.5s ease forwards;
+}
+
+#toggleInstructions {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  padding: 10px 10px 0 10px;
+  border-radius: 10px 10px 0 0;
+  width: 20%;
+  z-index: 100;
+}
+
+#overall-table {
+  font-weight: 700;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.indented {
+  padding-left: 30px !important;
 }
 
 body {

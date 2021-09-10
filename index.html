@@ -42,12 +42,12 @@
 
     <div id="data-dashboard" class="main-content container">
       <div id="opening" class="row bg-blue-20 my-rounded">
-        <div class="col-sm-12 col-lg-6 offset-lg-6 d-flex align-items-center text-white">
+        <div class="col-sm-12 col-lg-8 offset-lg-4 d-flex align-items-center text-white">
           <div>
-            <h1 class="bigger">Sexual Harassment Data</h1>
+            <h1 class="bigger">Sexual Harassment in the Media: 2020-2021 Research</h1>
             <div class="red-block"></div>
             <p class="bigger">
-              Get a snapshot of the scale of sexual harassment in media organisations and drill down to see what action is being taken to address the problem. Drawn from research by Women in News in 2020 and 2021.
+              WAN-IFRA Women in News and City, University of London conducted a major research study into sexual harassment in the media workplace in select countries in Sub-Saharan Africa, the Arab Region, Southeast Asia, Latin America and Russia. This study builds on research done in 2018 which identified a gap in available data on sexual harassment in media specifically in these regions
             </p>
           </div>
         </div>
@@ -60,15 +60,14 @@
             <div class="col-12 text-center mt-3">
               <h1>Prevalence Of Sexual Harassment in the Media</h1>
             </div>
-            <div class="col-12 text-center">
-              <p class="smaller">Click on the toggles at the bottom to filter results by gender, type of harassment and action taken. |
-                Zoom in and out to get a better picture.
-              </p>
-            </div>
           </div>
           <!-- *data container -->
           <div id="data-container" class="h-100 flex-grow-1">
             <div class="canvas h-100 w-100">
+            </div>
+            <!-- *toggle instructions -->
+            <div id="toggleInstructions" class="bg-blue-90 text-white">
+              <p class="smaller">Click on the toggles below to filter results by gender, type of harassment and action taken.</p>
             </div>
             <!-- *my tooltip -->
             <div class="my-tooltip">
@@ -80,15 +79,15 @@
                     <td><span id="tip-participants-value">547</span></td>
                   </tr>
                   <tr class="text-teal">
-                    <td>Those who Experienced Sexual Harassment</td>
+                    <td>Experienced Sexual Harassment</td>
                     <td><span id="tip-prevalence-value"></span>%</td>
                   </tr>
                   <tr class="text-yellow">
-                    <td>Those who reported the incident</td>
+                    <td><i class="material-icons">south_east</i> Reported the incident</td>
                     <td><span id="tip-reported-value">547</span>%</td>
                   </tr>
                   <tr class="text-red">
-                    <td>Those who received action from their organisation</td>
+                    <td class="indented"><i class="material-icons">south_east</i> Received action from their organisation</td>
                     <td><span id="tip-action-value">547</span>%</td>
                   </tr>
                 </tbody>
@@ -104,22 +103,26 @@
             <div class="col-sm-12 col-md-12 col-lg-6">
             <div id="total-value" class="my-rounded text-left">
               <h3>OVERALL REGIONAL RESULTS: <span id="location-value">Africa</span></h3>
-              <table class="table text-white">
+              <table id="overall-table" class="table text-white">
                 <tbody>
                   <tr>
                     <td>Participants</td>
                     <td><span id="participants-value">547</span></td>
                   </tr>
                   <tr class="text-teal">
-                    <td>Those who Experienced Sexual Harassment</td>
+                    <td>Experienced Sexual Harassment</td>
                     <td><span id="prevalence-value"></span>%</td>
                   </tr>
                   <tr class="text-yellow">
-                    <td>Those who reported the incident</td>
+                    <td>
+                      <i class="material-icons">south_east</i>
+                      Reported the incident</td>
                     <td><span id="reported-value">547</span>%</td>
                   </tr>
                   <tr class="text-red">
-                    <td>Those who received action from their organisation</td>
+                    <td class="indented">
+                      <i class="material-icons mw-3">south_east</i>
+                      Received action</td>
                     <td><span id="action-value">547</span>%</td>
                   </tr>
                 </tbody>
@@ -174,12 +177,23 @@
 
         <div id="data-links" class="d-flex flex-column col-sm-12 col-lg-3">
           <div class="flex-grow-1 d-flex align-items-center data-link bg-blue-20 my-rounded">
+            <div id="win-quote" class="px-1">
+              <i class="material-icons quote rotate">format_quote</i>
+            <h5 class="text-white px-5">
+              WIN defines sexual harassment as unwanted and offensive behaviour, of a sexual nature, that violates a person’s dignity and makes them feel degraded, humiliated, intimidated or threatened.
+            </h5>
+            <div class="d-flex justify-content-end">
+              <i class="material-icons quote">format_quote</i>
+            </div>
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex align-items-center data-link bg-blue-20 my-rounded">
             <a href="full-data.html">
               <div class="flex-row d-flex my-links">
                 <div class="col-sm-8 col-md-10 text-left">
                   <i class="material-icons my-icon">leaderboard</i> 
                   <h4>Data Breakdown</h4>
-                  <p class="smaller">View data visualisations highlighting key research areas</p>
+                  <p class="smaller">Interact with the data and go deeper into the results</p>
                 </div>
                 <div class="col-sm-4 col-md-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons arrow">

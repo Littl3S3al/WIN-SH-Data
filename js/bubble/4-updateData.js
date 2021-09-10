@@ -1,5 +1,5 @@
 //  *(runs at start) bring in the csv data - then the json data - then call update
-d3.csv('data/compiled.csv')
+d3.csv('data/completed.csv')
     .then((d) => {
         baseData = d
         updateData(baseData)
@@ -36,6 +36,7 @@ function updateData(baseData) {
 }
 
 function globalCalc(baseData, key, parent){
+
     let participants = 0
     let experienced = 0
     let reported = 0
@@ -58,10 +59,25 @@ function globalCalc(baseData, key, parent){
         finalData.push(
             {trueName: location, name: location, parent: parent, participants: dataArray[0]},
             {trueName: 'experience', name: location + ' experience', parent: location},
-            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]},
+
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},
+
             {trueName: 'reported', name: location + ' reported', parent: location + ' experience'},
-            {trueName: 'no action', name: location + ' no action', parent: location + ' reported', value: dataArray[3]/ dataArray[0]},
-            {trueName: 'action', name: location + ' action', parent: location + ' reported', value: dataArray[2]/ dataArray[0]}
+
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},                       
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},            
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},
+            {trueName: 'not reported', name: location + ' not reported', parent: location + ' experience', value: dataArray[4]/ dataArray[0]/6},
+
+            {trueName: 'no action', name: location + ' no action', parent: location + ' reported', value: dataArray[3]/ dataArray[0]/3},
+            {trueName: 'no action', name: location + ' no action', parent: location + ' reported', value: dataArray[3]/ dataArray[0]/3},
+
+            {trueName: 'action', name: location + ' action', parent: location + ' reported', value: dataArray[2]/ dataArray[0]},
+
+            {trueName: 'no action', name: location + ' no action', parent: location + ' reported', value: dataArray[3]/ dataArray[0]/3},
+            
+            
 
             )
 
@@ -114,12 +130,12 @@ function baseFilter(filteredArray) {
     let total = d3.sum(filteredArray, d => d.total_answered )
     
     // get the overall totals for the region
-    let v_notRep = d3.sum(filteredArray, d => d.v_not_reported)
-    let v_action = d3.sum(filteredArray, d => d.v_action)
-    let v_noAct = d3.sum(filteredArray, d => d.v_no_action)
-    let p_notRep = d3.sum(filteredArray, d => d.p_not_reported)
-    let p_action = d3.sum(filteredArray, d => d.p_action)
-    let p_noAct = d3.sum(filteredArray, d => d.p_no_action)
+    let v_prev = d3.sum(filteredArray, d => d.v_prevalence)
+    let v_rep = d3.sum(filteredArray, d => d.v_reported)
+    let v_act = d3.sum(filteredArray, d => d.v_action)
+    let p_prev = d3.sum(filteredArray, d => d.p_prevalence)
+    let p_rep = d3.sum(filteredArray, d => d.p_reported)
+    let p_act = d3.sum(filteredArray, d => d.p_action)
 
     let action = 0
     let noAction = 0
@@ -127,14 +143,14 @@ function baseFilter(filteredArray) {
 
     // calculate verbal/physical and half if both are true
     if(type.includes('v')){
-        action += v_action
-        noAction += v_noAct
-        notReported += v_notRep
+        action += v_act
+        noAction += v_rep - v_act
+        notReported += v_prev - v_rep
     }
     if(type.includes('p')){
-        action += p_action
-        noAction += p_noAct
-        notReported += p_notRep
+        action += p_act
+        noAction += p_rep - p_act
+        notReported += p_prev - p_rep
     }
     if(type.length === 2){
         action /= 2

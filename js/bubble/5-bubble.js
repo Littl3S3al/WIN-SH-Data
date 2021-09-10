@@ -5,6 +5,7 @@ const valueSize = 20
 const valueFont = 'Bebas Neue'
 const fontColor = 'white'
 const transDown = 20
+const transUp = 30
 
 
 let centered;
@@ -43,15 +44,6 @@ function bubbles (finalData, perCountryData) {
 
     
     setUpTip(myCountry, perCountryData, 'not-clicked')
-    
-    const canvas = graph.append('rect')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('width', width)
-        .attr('height', height)
-        .attr('fill', 'teal')
-        .attr('opacity', 0)
-        .on('click', function(d, i){clicked(i, d3.select(this), d3.select(this).attr('class'))})
 
     const stratify = d3.stratify()
     .id(d => d.name)
@@ -62,6 +54,9 @@ function bubbles (finalData, perCountryData) {
 
     const pack = d3.pack()
         .size([width - 50, height])
+        .padding([5])
+
+        
 
     const bubbleData = pack(rootNode).descendants()
     // bubbleData.forEach(bubble => {if(bubble.height === 3) {console.log(bubble.id, bubble.value, bubble.data.participants)}})
@@ -72,9 +67,12 @@ function bubbles (finalData, perCountryData) {
         nodes
         .enter()
         .append('circle')
-        .attr('r', d => d.r)
+        .attr('r', d => {
+            if(d.height === 4){return width/2}
+            else if(d.height === 0 && !action){return 0}
+            else{return d.r}
+        })
         .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
-        .attr('stroke-width', 2)
         .attr('class', d => d.data.trueName)
         .attr('fill', d => {
             if(d.height === 4){ return "rgba(0, 0, 0, 0)"}
@@ -83,6 +81,7 @@ function bubbles (finalData, perCountryData) {
             if(d.height === 0) {return '#ff4700'}
             else{return 'none'}
         })
+        .attr('stroke-width', 2)
         .on('mouseover',function(d) {mouseover(d3.select(this), d3.select(this).attr('class'))})
         .on('mouseout',function() {mouseout(d3.select(this), d3.select(this).attr('class'))})
         .on('click', function(d, i){clicked(i, d3.select(this), d3.select(this).attr('class'))})
@@ -102,6 +101,8 @@ function bubbles (finalData, perCountryData) {
         .duration(1000)
         .attr('r', (d) => d.value ? d.r : 0)
         .attr('transform', (d) => `translate(${d.x}, ${d.y})`);
+        
+
 
 
         // *adding country names
@@ -112,12 +113,13 @@ function bubbles (finalData, perCountryData) {
         labels
         .enter()
         .append('text')
+        .on('mouseover',function(d) {console.log(d3.select(this))})
         .attr('class', 'label')
         .attr('font-family', labelFont)
         .attr('font-size', labelSize )
         .attr('fill', fontColor)
         .attr('font-weight', 500)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
+        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp})`)
         .attr('text-anchor', 'middle')
         .text(d => {if(d.height === 3){return d.data.trueName.toUpperCase()}})
 
@@ -125,7 +127,7 @@ function bubbles (finalData, perCountryData) {
         labels
         .transition()
         .duration(1000)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
+        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp})`)
         .text(d => {if(d.height === 3  && d.value){return d.data.trueName.toUpperCase()}})
 
         // *adding country values
@@ -140,7 +142,7 @@ function bubbles (finalData, perCountryData) {
         .attr('font-family', valueFont)
         .attr('font-size', valueSize )
         .attr('fill', fontColor)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y + transDown})`)
+        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp/3})`)
         .attr('text-anchor', 'middle')
         .text(d => {if(d.height === 3){return Math.round(d.value * 100) + '%'}})
 
@@ -149,7 +151,7 @@ function bubbles (finalData, perCountryData) {
         .transition()
         .duration(1000)
         .text(d => {if(d.height === 3  && d.value){return Math.round(d.value * 100) + '%'}})
-        .attr('transform', (d) => `translate(${d.x}, ${d.y + transDown})`);
+        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp/3})`)
 
 
         const cover = graph.append('rect')
@@ -224,8 +226,13 @@ function mouseover(node, className){
         .transition()
         .duration(300)
         .attr('stroke', 'white')
-        .attr('stroke-weight', 2)
         .attr('cursor', 'pointer')
+        setTimeout(() => {
+            node
+            .transition()
+            .duration(300)
+            .attr('stroke', '#2eb5c3')
+        }, 1000)
     }
 }
 
@@ -235,8 +242,7 @@ function mouseout(node, className){
         node
         .transition()
         .duration(300)
-        .attr('stroke', '')
-        .attr('stroke-weight', 0)
+        .attr('stroke', '#2eb5c3')
         .attr('cursor', 'default')
     }
 

@@ -31,5 +31,5 @@ let seaKey = ['tanzania', 'uganda', 'zambia', 'zimbabwe']
 
 // get container
 const container = document.querySelector('.canvas')
-const width = container.clientWidth
+const width = container.clientWidth - 30
 const height = container.offsetHeight

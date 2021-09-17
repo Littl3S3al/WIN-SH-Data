@@ -2803,6 +2803,21 @@ i.rotate {
   z-index: 100;
 }
 
+.bounceAround {
+  animation: bounce 8s infinite;
+}
+
+@keyframes bounce {
+  0%, 2%, 5%, 8%, 10%, 100% {
+    padding-bottom: 0;
+  }
+  4% {
+    padding-bottom: 10px;
+  }
+  6% {
+    padding-bottom: 5px;
+  }
+}
 #overall-table {
   font-weight: 700;
   font-size: 1.2em;
@@ -2813,6 +2828,46 @@ i.rotate {
   padding-left: 30px !important;
 }
 
+#currentView {
+  position: absolute;
+  top: 30;
+  right: 0;
+  background: #2eb5c3;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.my-toast {
+  position: absolute;
+  top: 20px;
+  width: 20%;
+  right: 0;
+  color: white;
+}
+.my-toast .my-toast-body {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  line-height: 1em;
+  text-transform: uppercase;
+  animation: fadeUp 4s forwards ease;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  20%, 80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
 body {
   font-family: "Alegreya Sans", sans-serif !important;
   font-size: 1em;

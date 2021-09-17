@@ -49,16 +49,30 @@ function bubbles (finalData, perCountryData) {
     .id(d => d.name)
     .parentId(d => d.parent)
 
+
     const rootNode = stratify(finalData)
         .sum(d => d.value)
 
     const pack = d3.pack()
         .size([width - 50, height])
-        .padding([5])
-
+        
         
 
-    const bubbleData = pack(rootNode).descendants()
+    let bubbleData = pack(rootNode).descendants()
+
+    if(!action){
+        bubbleData.forEach((d, i) => {
+            if(d.height === 0){bubbleData[i].r = 0}
+        })
+    }
+    if(!reported){
+        bubbleData.forEach((d, i) => {
+            if(d.height === 1){bubbleData[i].r = 0}
+            if(d.height === 0){bubbleData[i].r = 0}
+        })
+    }
+ 
+    
     // bubbleData.forEach(bubble => {if(bubble.height === 3) {console.log(bubble.id, bubble.value, bubble.data.participants)}})
     // *adding circles
     const nodes = graph.selectAll('circle')
@@ -67,21 +81,27 @@ function bubbles (finalData, perCountryData) {
         nodes
         .enter()
         .append('circle')
-        .attr('r', d => {
-            if(d.height === 4){return width/2}
-            else if(d.height === 0 && !action){return 0}
-            else{return d.r}
-        })
         .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
         .attr('class', d => d.data.trueName)
         .attr('fill', d => {
             if(d.height === 4){ return "rgba(0, 0, 0, 0)"}
-            if(d.height === 3) {return '#2eb5c3'}
-            if(d.height === 1) {return '#ffb000'}
+            if(d.height === 3) {
+                if(reported || action){return 'rgba(46, 180, 195, 0.3)'}
+                else{return '#2eb5c3'}
+            }
+            if(d.height === 1) {{
+                if(action){return 'rgba(255, 174, 0, 0.3)'}
+                else{return '#ffb000'}
+            }}
             if(d.height === 0) {return '#ff4700'}
             else{return 'none'}
         })
-        .attr('stroke-width', 2)
+        .attr('stroke-width', 1)
+        .attr('stroke', d => {
+            if(d.height !== 4){
+                return '#fff'
+            }
+        })
         .on('mouseover',function(d) {mouseover(d3.select(this), d3.select(this).attr('class'))})
         .on('mouseout',function() {mouseout(d3.select(this), d3.select(this).attr('class'))})
         .on('click', function(d, i){clicked(i, d3.select(this), d3.select(this).attr('class'))})
@@ -99,11 +119,22 @@ function bubbles (finalData, perCountryData) {
         nodes
         .transition()
         .duration(1000)
+        .attr('fill', d => {
+            if(d.height === 4){ return "rgba(0, 0, 0, 0)"}
+            if(d.height === 3) {
+                if(reported){return 'rgba(46, 180, 195, 0.3)'}
+                else{return '#2eb5c3'}
+            }
+            if(d.height === 1) {{
+                if(action){return 'rgba(255, 174, 0, 0.3)'}
+                else{return '#ffb000'}
+            }}
+            if(d.height === 0) {return '#ff4700'}
+            else{return 'none'}
+        })
         .attr('r', (d) => d.value ? d.r : 0)
         .attr('transform', (d) => `translate(${d.x}, ${d.y})`);
         
-
-
 
         // *adding country names
         const labels = graph.selectAll('.label')
@@ -119,7 +150,7 @@ function bubbles (finalData, perCountryData) {
         .attr('font-size', labelSize )
         .attr('fill', fontColor)
         .attr('font-weight', 500)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp})`)
+        .attr('transform', (d) => `translate(${d.x}, ${d.y})`)
         .attr('text-anchor', 'middle')
         .text(d => {if(d.height === 3){return d.data.trueName.toUpperCase()}})
 
@@ -127,7 +158,10 @@ function bubbles (finalData, perCountryData) {
         labels
         .transition()
         .duration(1000)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp})`)
+        .attr('transform', (d) => {
+            if(!reported){ return `translate(${d.x}, ${d.y})`}
+            else{ return `translate(${d.x}, ${d.y - transUp})`}
+        })
         .text(d => {if(d.height === 3  && d.value){return d.data.trueName.toUpperCase()}})
 
         // *adding country values
@@ -142,7 +176,7 @@ function bubbles (finalData, perCountryData) {
         .attr('font-family', valueFont)
         .attr('font-size', valueSize )
         .attr('fill', fontColor)
-        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp/3})`)
+        .attr('transform', (d) => `translate(${d.x}, ${d.y + transUp*0.7})`)
         .attr('text-anchor', 'middle')
         .text(d => {if(d.height === 3){return Math.round(d.value * 100) + '%'}})
 
@@ -150,8 +184,15 @@ function bubbles (finalData, perCountryData) {
         values
         .transition()
         .duration(1000)
-        .text(d => {if(d.height === 3  && d.value){return Math.round(d.value * 100) + '%'}})
-        .attr('transform', (d) => `translate(${d.x}, ${d.y - transUp/3})`)
+        .text(d => {if(d.height === 3  && d.value){
+            if(action){return getValue(d.data.trueName, 'action') + '%'}
+            else if (reported && !action){return getValue(d.data.trueName, 'reported') + '%'}
+            else{return getValue(d.data.trueName, '') + '%'}
+        }})
+        .attr('transform', (d) => {
+            if(!reported){return `translate(${d.x}, ${d.y + transUp*0.7})`}
+            else {return `translate(${d.x}, ${d.y - transUp/3})`}
+        })
 
 
         const cover = graph.append('rect')
@@ -171,7 +212,9 @@ function bubbles (finalData, perCountryData) {
 
 // tween for entry of bubbles
 const bubTweenEnter = (d) => {
-    let i = d3.interpolate(0, d.r);
+    let i;
+    if(d.height === 4){i = d3.interpolate(0, width/1.5)}
+    else{i = d3.interpolate(0, d.r)}
     return (t) => {
       d.r = i(t);
       return d.r;
@@ -225,14 +268,14 @@ function mouseover(node, className){
         node
         .transition()
         .duration(300)
-        .attr('stroke', 'white')
+        .attr('stroke-width', '4')
         .attr('cursor', 'pointer')
         setTimeout(() => {
             node
             .transition()
             .duration(300)
-            .attr('stroke', '#2eb5c3')
-        }, 1000)
+            .attr('stroke-width', '1')
+        }, 3000)
     }
 }
 
@@ -242,8 +285,25 @@ function mouseout(node, className){
         node
         .transition()
         .duration(300)
-        .attr('stroke', '#2eb5c3')
+        .attr('stroke-width', '1')
         .attr('cursor', 'default')
     }
 
+}
+
+
+function getValue(location, type){
+    let index = perCountryData.findIndex(x => x.location === location)
+    if(type === 'action'){
+        let newValue =  Math.round(perCountryData[index].action)
+        return newValue ? newValue : 0
+    }
+    else if(type === 'reported'){
+        let newValue =  Math.round(perCountryData[index].reported)
+        return newValue ? newValue : 0
+    }
+    else{
+        let newValue = Math.round(perCountryData[index].experienced)
+        return newValue ? newValue : 0
+    }
 }

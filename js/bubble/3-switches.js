@@ -20,11 +20,12 @@ document.addEventListener('click', (e) => {
       }
     });
   
-    reported = switches[5].checked;
-    action = switches[6].checked;
+    reported = switches[3].checked;
+    action = switches[4].checked;
   
     // make sure rules aren't broken with switches
     if (e.target.type === 'checkbox') {
+      toggleAlert.classList.remove('bounceAround')
       switch (e.target.value) {
         case 'f':
           if (!gender.length) {
@@ -38,30 +39,29 @@ document.addEventListener('click', (e) => {
           }
         case 'v':
           if (!type.length) {
-            switches[4].click();
+            switches[6].click();
           }
           break;
         case 'p':
           if (!type.length) {
-            switches[3].click();
+            switches[5].click();
           }
           break;
         case 'reported':
           if (!reported) {
-            switches[6].checked = false;
-            document.querySelectorAll('.reported').forEach(reported => reported.classList.add('hidden'))
-            document.querySelectorAll('.action').forEach(reported => reported.classList.add('hidden'))
+            switches[4].checked = false;
+            makeToast('Experienced Sexual Harassment', 'teal')
           } else {
-            document.querySelectorAll('.reported').forEach(reported => reported.classList.remove('hidden'))
+            makeToast('Reported Incident', 'yellow')
           }
           break;
         case 'action':
           if(action){
-            switches[5].checked = true;
-            document.querySelectorAll('.reported').forEach(reported => reported.classList.remove('hidden'))
-            document.querySelectorAll('.action').forEach(reported => reported.classList.remove('hidden'))
-          } else {
-            document.querySelectorAll('.action').forEach(reported => reported.classList.add('hidden'))
+            switches[3].checked = true;
+            makeToast('Received Action', 'red')
+          } 
+          else if( !action && reported){
+            makeToast('Reported Incident', 'yellow')
           }
           
           break;
@@ -69,8 +69,8 @@ document.addEventListener('click', (e) => {
           break;
       }
   
-      if(switches[5].checked){reported = true}
-      if(switches[6].checked){reported, action = true}
+      if(switches[3].checked){reported = true}
+      if(switches[4].checked){reported, action = true}
   
       // UPDATE BUBBLE DATA IF SWITCHES WERE CLICKED
       updateData(baseData, gender, type);

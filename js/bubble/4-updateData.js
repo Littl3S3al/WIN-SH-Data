@@ -11,6 +11,7 @@ d3.csv('data/completed.csv')
 
 // variable to hold the array
 let finalData = [];
+let perCountryData = [];
 
 // *check which country/perspective the user is viewing
 function updateData(baseData) {
@@ -85,7 +86,7 @@ function globalCalc(baseData, key, parent){
                 {
                     location: location, 
                     participants: dataArray[0], 
-                    experienced: (dataArray[4] + dataArray[3] + dataArray[2])/dataArray[0]*100, 
+                    experienced: dataArray[1]/dataArray[0]*100, 
                     reported: (dataArray[2] + dataArray[3])/dataArray[1]*100, 
                     action: dataArray[2]/(dataArray[2] + dataArray[3])*100
                 }

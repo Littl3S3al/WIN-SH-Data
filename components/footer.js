@@ -22,10 +22,10 @@ class Footer extends HTMLElement {
             </div>
             <div class="col-sm-12 col-lg-3">
               <div class="red-block"></div>
-              <h3>More research links</h3>
-              <a href="full-data.html">View The Full Data</a>
-              <a href="reports.html">Get The PDF Reports</a>
-              <a href="articles.html">Read The Article Summaries</a>
+              <h3>Our research links</h3>
+              <a href="full-data.html">Data Breakdown</a>
+              <a href="articles.html">What to take away from the data</a>
+              <a href="reports.html">Get The PDF</a>
             </div>
           </div>
         </div>

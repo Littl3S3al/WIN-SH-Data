@@ -13,8 +13,39 @@ let baseData
 // track gender and type that is on
 let gender = ['f', 'm', 'n']
 let type = ['v', 'p']
-let reported = true
-let action = true
+let reported = false
+let action = false
+
+// toasts
+const toggleAlert = document.querySelector('#toggleInstructions')
+setTimeout(() => {
+    toggleAlert.classList.add('bounceAround')
+}, 10000)
+
+const toast = document.querySelector('.my-toast')
+
+function makeToast(value, colour){
+    toast.innerHTML = `
+    <div class="my-toast-body bg-${colour}-100">
+        ${value}
+    </div>`
+}
+
+
+
+// *starting points
+makeToast('Experienced Sexual Harassment', 'teal')
+
+setTimeout(() => {
+    switches[3].click()
+}, 2000)
+setTimeout(() => {
+    switches[4].click()
+}, 4000)
+
+
+
+
 
 //   spans inside of the homepage to be updated
 const locationSpan = document.querySelector('#location-value')
